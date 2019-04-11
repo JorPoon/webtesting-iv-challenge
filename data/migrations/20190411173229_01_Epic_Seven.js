@@ -12,7 +12,7 @@ exports.up = function(knex) {
       .string('class', 255)
       .notNullable()
 
-      tbl.string('sign', 255)
+      tbl.string('type', 255)
       .notNullable()
       
   })
