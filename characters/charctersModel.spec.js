@@ -26,4 +26,14 @@ describe('characters model', () => {
             expect(character.name).toBe('Luna')
         })
     })
+
+    describe('remove()', () => {
+        it('should remove the character', async () => {
+            await Characters.insert({name: 'Bellona', class: 'Ranger', type: 'Earth'});
+            await Characters.insert({name: 'Luna', class: 'Warrior', type: 'Ice'});
+            await Characters.remove(1)
+            const characters = await db('characters');
+            expect(characters).toHaveLength(1)
+        })
+    })
 })
