@@ -3,4 +3,5 @@ const config = require('../knexfile.js');
 
 const dbEnv = process.env.DB_ENV || 'development';
 
-module.exports = knex(config[dbEnv]);
+//config[dbEnv] >>>> error says client is undefined
+module.exports = knex(config.development);

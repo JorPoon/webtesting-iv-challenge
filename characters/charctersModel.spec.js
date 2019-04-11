@@ -17,5 +17,13 @@ describe('characters model', () => {
             const characters = await db('characters');
             expect(characters).toHaveLength(5);
         })
+
+        it('should insert the provided character', async () => {
+            let character = await Characters.insert({name: 'Bellona', class: 'Ranger', type: 'Earth'});
+            expect(character.name).toBe('Bellona');
+
+            character = await Characters.insert({name: 'Luna', class: 'Warrior', type: 'Ice'});
+            expect(character.name).toBe('Luna')
+        })
     })
 })
